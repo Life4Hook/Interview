@@ -1,13 +1,12 @@
 <?php
 function add_to_array($data, $a){
-    for ($val = 0; $val < count($data); $val++){
-        if (strpos($data[$val], "2") !== false){
-            $data[] = 0;
-            for ($new_val = count($data) - 1; $new_val > $val; $new_val--){
-                $data[$new_val] = $data[$new_val - 1];
+    for ($index = 0; $index < count($data); $index++){
+        if (strpos($data[$index], "2") !== false){
+            for ($new_index = count($data) - 1; $new_index > $index; $new_index--){
+                $data[$new_index + 1] = $data[$new_index];
             }
-            $val += 1;
-            $data[$val] = $a;
+            $index += 1;
+            $data[$index] = $a;
         }
     }
     return $data;
