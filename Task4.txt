@@ -1,0 +1,17 @@
+//Создание таблицы в БД
+CREATE TABLE Спортсмены
+(ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ NAME VARCHAR(70),
+ EMAIL VARCHAR(30),
+ PHONENUMBER INT(11),
+ BIRTHDAY DATE,
+ AGE INT(3),
+ CREATE_DATE DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+ PASSPORT_NUMBER INT(6),
+ AVERAGE_RESULT FLOAT(5),
+ BIOGRAPHY TEXT,
+ VIDEO LONGBLOB)
+
+ //Выбор топ 5 спортсменов
+ //Если бы БД была заполнена, то, например, из таблицы результатов:
+SELECT name, COUNT(name) as `counter` FROM `результаты` GROUP BY name ORDER BY `counter` DESC LIMIT 5;
