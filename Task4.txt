@@ -1,9 +1,9 @@
 //Создание таблицы в БД
-CREATE TABLE Спортсмены
+CREATE TABLE Sportsman
 (ID INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
  NAME VARCHAR(70),
  EMAIL VARCHAR(30),
- PHONENUMBER INT(11),
+ PHONE_NUMBER VARCHAR(11),
  BIRTHDAY DATE,
  AGE INT(3),
  CREATE_DATE DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -13,5 +13,6 @@ CREATE TABLE Спортсмены
  VIDEO LONGBLOB)
 
  //Выбор топ 5 спортсменов
- //Если бы БД была заполнена, то, например, из таблицы результатов:
-SELECT name, COUNT(name) as `counter` FROM `результаты` GROUP BY name ORDER BY `counter` DESC LIMIT 5;
+ //Если бы БД была заполнена по диаграмме то:
+SELECT Sportsman.NAME, COUNT(Results.SPORTSMAN_ID) as `counter` FROM Results JOIN Sportsman ON Sportsman.ID = Results.SPORTSMAN_ID 
+GROUP BY Results.SPORTSMAN_ID ORDER BY `counter` DESC LIMIT 5;
